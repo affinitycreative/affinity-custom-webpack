@@ -1,0 +1,300 @@
+/**************************\
+  Basic Modal Styles
+\**************************/
+
+.modal[aria-hidden='true'] {
+  display: none;
+}
+
+.modal[aria-hidden='false'] {
+  display: block;
+}
+
+.modal {
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+}
+.modal{
+    .container-fluid{
+        padding: 0;
+    }
+}
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal__container {
+    position: relative;
+  background-color: #fff;
+      height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+      top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #00449e;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+.modal__close {
+  background: transparent;
+  border: 0;
+}
+
+.modal__header .modal__close:before { content: "\2715"; }
+
+.modal__content {
+  line-height: 1.5;
+  color: rgba(0,0,0,.8);
+  overflow: hidden;
+}
+
+.modal__btn {
+  font-size: .875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  background-color: #e6e6e6;
+  color: rgba(0,0,0,.8);
+  border-radius: .25rem;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+  line-height: 1.15;
+  margin: 0;
+  will-change: opacity;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: -webkit-transform .25s ease-out;
+  transition: transform .25s ease-out;
+  transition: transform .25s ease-out,-webkit-transform .25s ease-out;
+}
+
+.modal__btn:focus, .modal__btn:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.modal__btn-primary {
+  background-color: #00449e;
+  color: #fff;
+}
+
+//WineFinder
+/*
+.shopFormWrapper{
+
+  height:100vh;
+
+  .shopFormContainer{
+      position: absolute;
+      @include transform(translate(-50%,-50%));
+      left: 50%;
+      top: 46%;
+      
+
+      #brand{
+        display:none !important;
+      }
+
+      #wine-finder{
+        width:250px;
+        margin: 0 auto;
+        
+
+          & select, & input {
+              background: transparent;
+              border: 2px solid $beige ;
+              text-align: left;
+              padding: 9px 10px;
+              display: block;
+              margin: 20px auto;
+              border-radius: 0 !important;
+              color: $beige;
+              font-family: $serifa;
+              font-weight: 500;
+               width:250px;
+               height:43px;
+               font-size: 1.1em;
+         }
+
+         #wineFinder-submit{
+            text-align: center !important;
+            color: white !important;
+            border: 1px solid #fff;
+            width: 125px;
+            margin-top: 45px;
+         }
+      }
+
+      select{
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px !important;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#b1aa9a' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>") !important;
+    background-position: 95% 50% !important;
+    background-repeat: no-repeat !important;
+}
+
+
+      .stateZip-container{
+        @include display(flex);
+        @include justify-content(space-evenly);
+        margin: -20px 0;
+
+          #zip{
+              width: 100%;
+              margin-left: 26px;
+          }
+      }
+
+
+      #modal-icon{
+        width: 15%;
+        display: block;
+        margin: 0 auto;
+        min-width: 90px;
+      }
+
+      h2{
+        font-family: $fly;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 7em;
+        color: $beige;
+        letter-spacing: 0.05em;
+        line-height: 0.8em;
+        margin: 35px 0 45px 0;
+        -webkit-text-fill-color: transparent;
+        background: -webkit-linear-gradient(transparent, transparent),
+        url(/wp-content/uploads/2017/10/texture_v9.jpg) repeat;
+        background: -o-linear-gradient(transparent, transparent);
+        -webkit-background-clip: text;
+
+        @media screen and (max-width:480px){
+            font-size: 4em;
+        }
+      }
+  }
+}//shopWrapper
+.modal__container.wineFinder{
+  background-color: transparent;
+}
+
+
+.wineFinder-background {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: rgba(51, 53, 44, 0.9);
+    z-index: -1;
+}
+
+
+
+#modal-terms, #modal-privacy{
+
+  .modal__container.terms,.modal__container.privacy{
+
+    background: rgba(51, 53, 44, 0.95);
+    color:#fff;
+  }
+
+  h1{
+   font-family: $serifa;
+   font-weight: 600;
+   font-style: normal;
+   color: #fff;
+   font-size: 2.25em;
+   line-height: 1.7em;
+ }
+
+ h2{
+   font-family: $serifa;
+   font-weight: 600;
+   font-style: normal;
+   color: #fff;
+   font-size: 1.25em;
+   line-height: 1.7em;
+ }
+
+ p{
+  font-family: $serifa;
+  font-weight: 300;
+  font-style: normal;
+  color: #fff;
+  font-size: 1.25em;
+  line-height: 1.7em;
+}
+
+ul{
+  color:#fff;
+}
+
+.col-md-10{
+  margin: 90px auto;
+  float: none;
+}
+
+
+}//modal terms
+*/
+
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mm-fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; } 
+}
+
+// @keyframes mm-slideIn {
+//   from { transform: translateY(35%); }
+//     to { transform: translateY(0); }
+// }
+
+// .micromodal-slide[aria-hidden="false"] .modal__overlay {
+//   animation: mm-fadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+// }
+
+// .micromodal-slide[aria-hidden="false"] .modal__container {
+//   animation: mm-fadeIn .3s cubic-bezier(0, 0, .2, 1);
+// }
+
+// .micromodal-slide .modal__container,
+// .micromodal-slide .modal__overlay {
+//   will-change: transform;
+// }
+
+
+
+   

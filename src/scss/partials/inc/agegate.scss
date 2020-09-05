@@ -1,0 +1,307 @@
+.blur{
+    -webkit-filter: blur(10px);
+   -moz-filter: blur(10px);
+   -o-filter: blur(10px);
+   -ms-filter: blur(10px);
+   filter: blur(10px);
+ // filter: url(/wp-content/uploads/2017/10/blur.svg#blur);
+ //  filter: progid:DXImageTransform.Microsoft.blur(MakeShadow='false', PixelRadius='20');
+  //  pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; 
+    //position: absolute;
+
+}
+
+
+
+.play{
+  animation: blur .5s;
+  animation-direction:normal;
+  animation-fill-mode: forwards; 
+}
+
+.reverse{
+  animation: blurReverse .5s;
+  animation-direction:normal;
+  animation-fill-mode: forwards;    
+}
+
+
+@-webkit-keyframes blur {
+  0%{
+    -moz-filter: blur(0px);filter: blur(0px); -webkit-filter: blur(0px); 
+  }
+  50% { 
+    -moz-filter: blur(5px);filter: blur(5px); -webkit-filter: blur(5px); 
+  }
+  100%{-moz-filter: blur(10px);filter: blur(10px); -webkit-filter: blur(10px);}
+}
+
+@-webkit-keyframes blurReverse {
+  0%{-moz-filter: blur(10px);filter: blur(10px); -webkit-filter: blur(10px); }
+  50% { -moz-filter: blur(5px);filter: blur(5px); -webkit-filter: blur(5px); }
+  100%{-moz-filter: blur(0px);filter: blur(0px); -webkit-filter: blur(0px);}
+}
+
+
+/*****************
+
+Age Gate
+
+*****************/
+.fixpage{
+    overflow: hidden;
+    position: fixed;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background-color: pink;
+  background-color: #000;
+  z-index: 10000;
+
+  #status {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    max-width: 230px;
+    background-size: contain;
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+     background-image: url("/wp-content/uploads/2017/10/BD-Wines-Logo_white.svg");
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    transform:translate(-50%, -50%);
+  }
+}
+
+
+html#overflow, body#overflow{
+  overflow: hidden;
+}
+
+#ageGate{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #414141;
+    background-image: url(/wp-content/uploads/2018/08/agegate_back_m.png);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000;
+
+@media screen and (min-width: $medium){
+  background-image: url(/wp-content/uploads/2018/08/agegate_back.jpg);
+  background-size: cover;
+
+    .underline-button{
+        &:hover{
+            p{
+                color: $black; 
+            } 
+        }
+    }
+}
+.underline-button:first-child{
+    p{
+        opacity: 1;
+    }
+}
+  
+   
+
+  #overlay-content{
+          display: flex;
+          height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0);
+    
+
+    @media screen and (max-width:480px){
+        position: relative;
+        //left: 50%;
+        //top: 50%;
+        //@include transform(translate(-50%,-50%));
+    }
+
+    #modal-icon{
+      width: 80%;
+      display: none;
+
+      @media screen and (min-width: $medium){
+            display: block; 
+      }
+   } 
+   #modal-icon-m{
+        display: block; 
+        width: 100%;
+        position: absolute;
+        top: 130px;
+        width: 90%;
+
+        @media screen and (min-width: $medium){
+            display: none; 
+        }
+   }
+
+    h3{
+        font-size: 1rem; 
+        color: #000;
+        margin-bottom: 0;
+        margin-top: .5rem;
+        line-height: 1rem;
+
+    }
+    .button-wrapper{
+      display: flex;
+      justify-content:center;
+      flex-wrap: wrap;
+
+        margin-top:  .5rem;
+      
+    }
+   @media screen and (min-width: $mobile) and (min-height: 415px){
+        h3{
+            font-size: 1.5rem; 
+            margin-top: 2rem;
+            line-height: 2rem;
+        }
+        .button-wrapper{
+            margin-top: 2rem; 
+        }
+        
+   }
+   
+
+    // #under21{
+    //   display:none;
+    // }
+
+
+
+    
+
+    @media screen and (min-width: $medium){
+      width: 60%;
+        //background-image: url(/wp-content/uploads/2018/03/agegate_back.png);
+        background-size: 101% 98%;
+        background-repeat: no-repeat;
+    }
+  }
+
+#overlay-content{
+    .text-back{
+        background: url(/wp-content/uploads/2018/08/agegate_text_bg.png);
+        background-size: 100% 100%;
+        color: $black;
+        padding: 20px 27px;
+
+        .button-wrapper{
+           margin-top: 2rem;
+        font-size: 1.25rem; 
+        }
+
+
+        h3{
+            margin-top: 1rem;
+            font-size: 1.8rem;
+            color: $black;
+        }
+        button{
+            background: none; 
+            border: none;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10000;
+            &:first-child{
+            &:before{
+                z-index: -1;
+                        content: "";
+                        width: 25px;
+                        height: 25px;
+                        transform: rotate(134deg);
+                        position: absolute;
+                        background: url(/wp-content/uploads/2018/08/agegate_x.png);
+                        background-size: 100%;
+                        left: 13px;
+                        top: -4px;
+
+                        @media screen and (min-width: $medium){
+                            width: 40px;
+                            height: 40px;
+                            left: 16px;
+                            top: 2px;
+                        }
+
+                    }
+                }
+        }
+    }
+    @media screen and (max-width: $medium - 1){
+        width: 100%;
+
+        .text-back{
+            width: 90%;
+        }
+    }
+    @media screen and (min-width: 600px) and  (max-width: $medium - 1){
+        .text-back{
+            width: 70%;
+            margin-top: 175px;
+        }
+    }
+    @media screen and (min-width: $medium){
+        .text-back{
+            margin-top: 2rem;
+            padding: 40px 80px;
+
+            h3{
+                font-size: 2.8rem; 
+            } 
+
+            button{
+                &:hover{
+                    cursor: pointer;
+                     
+                } 
+            }
+        } 
+    }
+    @media screen and (min-width: $large){
+        .text-back{
+            h3{
+                font-size: 3rem; 
+            } 
+        } 
+    }
+}
+
+} //ageGate
+
+.age-gate-p{
+    font-size: 1.5rem;
+
+    @media screen and (min-width: $medium){
+        font-size: 2.4rem; 
+    }
+
+}
