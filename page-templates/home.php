@@ -11,7 +11,7 @@ get_header(); ?>
 
     
     <main data-barba="container" data-barba-namespace="home">
-        <h1>Home Page webpack</h1>
+        <h1>Home Page</h1>
         <p>home body copy home body copy home body copy home body copy home body copy home body copy</p>
         <a href="/about">About</a>
     </main>

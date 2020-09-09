@@ -1,4 +1,4 @@
-console.log("app.js speaking");
+console.log("app.js");
 import { app } from "./_util.js";
 import barba from "@barba/core";
 
