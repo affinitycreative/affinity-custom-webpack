@@ -1,11 +1,11 @@
-console.log("app 1604");
+console.log("app.js speaking");
 import { app } from "./_util.js";
 import barba from "@barba/core";
 
 console.log(app);
 
-const sayHello = (fName) => {
+const sayHelloTest = (fName) => {
   console.log(`Hello, ${fName}`);
 };
 
-sayHello("Trent");
+sayHelloTest("Trent");

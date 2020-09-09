@@ -1,5 +1,4 @@
 import { gsap, ScrollToPlugin, Draggable, MotionPathPlugin } from "gsap/all";
-import "./vendor/slick";
 
 // global.$ = window.jQuery = jQuery;
 
@@ -182,120 +181,8 @@ const app = {
 
     curtainTB.play();
   },
-  ageGateTL: "",
-  ageGateDrag: function() {
-    // app.ageGateTL.fromTo('#arrow-circle-group',1,{x:0},{x:218})
-    // .fromTo('#mask-circle .st1-slider',1,{attr:{cx:'27.4'}}, {attr:{cx:'245'} },"-=1")
-
-    // gsap.set("#agegate-slider-svg .handle", {x:"+=0"});
-
-    let arrowGroup = document.querySelector("#arrow-circle-group");
-    let shadow = document.querySelector("#mask-circle .st1-slider");
-
-    app.ageSlider = new Draggable(arrowGroup, {
-      // trigger: '#mask-circle .st1-slider',
-      type: "x",
-      //minimumMovement:6,
-      lockAxis: true,
-      dragResistance: 0.1,
-      edgeResitance: 1,
-      cursor: "grab",
-      bounds: { minX: 0, maxX: 215 },
-      throwProps: true,
-      inertia: true,
-      throwResistance: 800,
-      overshootTolerance: 0,
-      snap: function(value) {
-        //this function gets called by ThrowPropsPlugin when the mouse/finger is released and it plots where rotation should normally end and we can alter that value and return a new one instead. This gives us an easy way to apply custom snapping behavior with any logic we want. In this case, we'll just make sure the end value snaps to 90-degree increments but only when the "snap" checkbox is selected.
-
-        // console.log(`value:${value}`)
-        if (130 <= value) {
-          return 225;
-        } else {
-          return 0;
-        }
-      },
-      liveSnap: false,
-      onDragStart: function() {
-        let xDirection = this.getDirection("start");
-
-        if (
-          "right" == xDirection ||
-          "right-up" == xDirection ||
-          "right-down" == xDirection
-        ) {
-        } else if (
-          "left" == xDirection ||
-          "left-up" == xDirection ||
-          "left-down" == xDirection
-        ) {
-        }
-      },
-      maxDuration: 0.35,
-      onDragEnd: updateShadow,
-      onDrag: updateShadow,
-      onThrowUpdate: updateShadow,
-      onUpdate: updateShadow,
-    });
-
-    function updateShadow() {
-      gsap.set(shadow, { attr: { cx: app.ageSlider.x + 27 } });
-      hitEnd();
-    }
-
-    function hitEnd() {
-      if (app.ageSlider.hitTest("#line-group .st2-slider .st4-slider", "50%")) {
-        hideAgeGate();
-      }
-    }
-
-    let hideAgeGate = _.debounce(app.hideAgeGate, 300, {
-      leading: true,
-      trailing: false,
-    });
-  },
-  hideAgeGate: function() {
-    //console.log('hit the end');
-
-    app.ageGateTL
-      .to(
-        [
-          ".agegate-logo,#agegate .inner-container,.agegate-footer, .agegate-notification",
-        ],
-        1,
-        { autoAlpha: 0 }
-      )
-      .to(
-        ["#agegate-vid"],
-        2.5,
-        { autoAlpha: 0, scale: 1.3, ease: "power3.inOut" },
-        "-=.5"
-      )
-      .to(["#agegate"], 0.75, { autoAlpha: 0, ease: "power3.inOut" }, "-=.1");
-
-    app.ageGateTL
-      .play()
-      .eventCallback("onStart", function() {
-        Video.initHeroVideo();
-      })
-      .eventCallback("onComplete", function() {
-        sessionStorage.setItem("over21", true);
-      });
-  },
   pad(num, size) {
     return ("000000000" + num).substr(-size);
-  },
-  preFilterCollections: function() {
-    $(document).on(
-      {
-        click: function(e) {
-          //  e.preventDefault()
-          let filter = $(this).attr("data-filter");
-          sessionStorage.setItem("preFilter", filter);
-        },
-      },
-      ".pre-filter"
-    );
   },
   setCSSvariable: function() {
     document.documentElement.style.setProperty(
@@ -303,33 +190,8 @@ const app = {
       `${window.innerHeight / 100}px`
     );
   },
-  init: function() {
-    this.ageGateTL = new TimelineMax({ paused: true });
-    this.preFilterCollections();
-  },
+  init: function() {},
 }; //app
 
 export { app };
-
 //window.app = app;
-
-console.log(`test getURLPath ${app.getURLPath()}`);
-
-$("h1").css("opacity", ".5");
-
-//gsap.to("h1", 0.5, { x: 300 });
-
-$(".your-class").on("init", function(event, slick, direction) {
-  console.log("init 2");
-});
-
-$(".your-class").on("reInit", function(event, slick, direction) {
-  console.log("reinit");
-  // left
-});
-
-$(".your-class")
-  .not(".slick-initialized")
-  .slick({
-    dots: true,
-  });

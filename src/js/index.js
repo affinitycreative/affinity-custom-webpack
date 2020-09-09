@@ -1,14 +1,13 @@
-//import './sass/style.scss';
-
-import $ from "jquery";
+//import './sass/style.scss'; //using node sass not webpack to compile sass - check package.json
 
 //if global/window jquery needs to be exposed
 //global.$ = $;
 
-//import './js/customizer';
-// import './js/navigation';
-// import './js/skip-link-focus-fix';
+import $ from "jquery";
 
-//custom
+//vendor files
+import "./vendor/slick";
+
+//our files
 import "./_util";
 import "./app";

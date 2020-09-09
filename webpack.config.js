@@ -3,9 +3,6 @@ const path = require("path"),
   UglifyJSPlugin = require("uglifyjs-webpack-plugin"),
   // OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
   BrowserSyncPlugin = require("browser-sync-webpack-plugin"),
-  // LiveReloadPlugin = require('webpack-livereload-plugin'),
-  // ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin'),
-
   StyleLintPlugin = require("stylelint-webpack-plugin"),
   SpriteLoaderPlugin = require("svg-sprite-loader/plugin"),
   webpack = require("webpack");
@@ -31,7 +28,7 @@ module.exports = {
         loader: "eslint-loader",
       },
       {
-        test: /\.m?jsx$/,
+        test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
@@ -104,13 +101,6 @@ module.exports = {
       lintDirtyModulesOnly: true,
     }),
     new MiniCssExtractPlugin({ filename: "../style.css" }),
-    // new LiveReloadPlugin({
-    //   files: ['./*.php']
-    // }),
-    // new ExtraWatchWebpackPlugin({
-    //   files: ['./*.php']
-    //   //dirs: ['page-templates/*.php']
-    // }),
     // new BrowserSyncPLugin({
     //   files: ['**/*.php', '*.php'],
     //   injectChanges: true,
