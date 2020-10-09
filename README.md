@@ -1,3 +1,8 @@
+- New Install: Before running 'npm install' update webpack.config.js line 113 change proxy property to your local dev URL. Also in wp-config.php add 'localDev: true;' After that run 'npm install' from the root and that will run the 'dev' build process automatically
+- npm run build:dev for dev and npm run build:prod to compress and minify for production. Prod output to bundle.js
+
+
+
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 # \_s
