@@ -10,7 +10,7 @@
     "css:prefix": "postcss -u autoprefixer --autoprefixer.browsers '> 1%, IE 11' -r ./style.css",
     "watch:scss": "onchange './src/scss/**/*.scss' -i -- npm run build:css",
     "build:css": "npm run nodesass && npm run css:prefix",
-    "build:prod": "webpack && uglifyjs ./public/bundle.js -m -c -o ./public/bundle.min.js --source-map ",
+    "build:prod": "webpack && uglifyjs ./public/bundle.js -m -c drop_console=true -o ./public/bundle.min.js --source-map && uglifyjs ./public/vendors~bundle.js -m -c -o ./public/vendors.min.js --source-map",
     "build:dev": "npm run sass & npm run watch",
     "eslint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "eslint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
