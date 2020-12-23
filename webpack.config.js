@@ -1,39 +1,39 @@
-const path = require("path"),
-  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-  UglifyJSPlugin = require("uglifyjs-webpack-plugin"),
+const path = require('path'),
+  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+  UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
   // OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-  BrowserSyncPlugin = require("browser-sync-webpack-plugin"),
-  StyleLintPlugin = require("stylelint-webpack-plugin"),
-  SpriteLoaderPlugin = require("svg-sprite-loader/plugin"),
-  webpack = require("webpack");
+  BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
+  StyleLintPlugin = require('stylelint-webpack-plugin'),
+  SpriteLoaderPlugin = require('svg-sprite-loader/plugin'),
+  webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
   entry: {
-    bundle: ["./src/js/index.js"],
+    bundle: ['./src/js/index.js'],
     //style:['./src/scss/style.scss']
   },
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "[name].js",
+    path: path.resolve(__dirname, 'public'),
+    filename: '[name].js',
   },
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         exclude: /node_modules/,
         test: /\.jsx$/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
       },
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -42,29 +42,29 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: true,
               importLoaders: 1,
             },
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               sourceMap: true,
               config: {
-                path: "./src/js/postcss.config.js",
+                path: './src/js/postcss.config.js',
               },
             },
           },
           {
-            loader: "resolve-url-loader",
+            loader: 'resolve-url-loader',
             options: {
               sourceMap: true,
             },
           },
           {
-            loader: "sass-loader?sourceMap",
+            loader: 'sass-loader?sourceMap',
             options: {
               sourceMap: true,
             },
@@ -75,17 +75,17 @@ module.exports = {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
-              outputPath: "../fonts/",
+              name: '[name].[ext]',
+              outputPath: '../fonts/',
             },
           },
         ],
       },
       {
         test: /\.svg$/,
-        use: ["svg-sprite-loader", "svgo-loader"],
+        use: ['svg-sprite-loader', 'svgo-loader'],
       },
       // {
       //   test: require.resolve("jquery"),
@@ -100,7 +100,7 @@ module.exports = {
     new StyleLintPlugin({
       lintDirtyModulesOnly: true,
     }),
-    new MiniCssExtractPlugin({ filename: "../style.css" }),
+    new MiniCssExtractPlugin({ filename: '../style.css' }),
     // new BrowserSyncPLugin({
     //   files: ['**/*.php', '*.php'],
     //   injectChanges: true,
@@ -110,24 +110,24 @@ module.exports = {
     // }),
     new BrowserSyncPlugin(
       {
-        proxy: "http://delicato-scholarship.local/",
+        proxy: 'http://pharmastrip.local/',
         open: false,
         injectChanges: true,
         files: [
           {
-            match: ["style.css", "public/*.js", "**/*.php"],
+            match: ['style.css', 'public/*.js', '**/*.php'],
             fn: (event, file) => {
-              if ("change" == event) {
-                const bs = require("browser-sync").get("bs-webpack-plugin");
+              if ('change' == event) {
+                const bs = require('browser-sync').get('bs-webpack-plugin');
 
-                let filename = file.substring(file.lastIndexOf("/") + 1);
+                let filename = file.substring(file.lastIndexOf('/') + 1);
                 console.log(filename);
 
-                if (filename == "style.js" || filename == "style.css") {
-                  bs.reload("*.css");
+                if (filename == 'style.js' || filename == 'style.css') {
+                  bs.reload('*.css');
                 } else if (
-                  file.split(".").pop() == "js" ||
-                  file.split(".").pop() == "php"
+                  file.split('.').pop() == 'js' ||
+                  file.split('.').pop() == 'php'
                 ) {
                   bs.reload();
                 }
@@ -144,20 +144,20 @@ module.exports = {
       },
       {
         reload: false,
-        name: "bs-webpack-plugin",
+        name: 'bs-webpack-plugin',
       }
     ),
 
     // Provides jQuery for other JS bundled with Webpack
     new webpack.ProvidePlugin({
-      jQuery: "jquery",
-      $: "jquery",
-      "window.jQuery": "jquery",
-      "window.$": "jquery",
+      jQuery: 'jquery',
+      $: 'jquery',
+      'window.jQuery': 'jquery',
+      'window.$': 'jquery',
     }),
   ],
   optimization: {
-     splitChunks: {
+    splitChunks: {
       // include all types of chunks
       chunks: 'all',
     },

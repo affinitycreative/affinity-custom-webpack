@@ -3,11 +3,15 @@
 //if global/window jquery needs to be exposed
 //global.$ = $;
 
-import $ from "jquery";
+import $ from 'jquery';
 
-//vendor files
-import "./vendor/slick";
+//vendor files if NPM package isn't available
+import './vendor/slick';
 
 //our files
-import "./_util";
-import "./app";
+import App from './app';
+
+$(() => {
+  // Initialize global modules
+  App.init();
+});

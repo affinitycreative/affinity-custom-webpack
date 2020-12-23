@@ -1,11 +1,12 @@
-console.log("app.js");
-import { app } from "./_util.js";
-import barba from "@barba/core";
+import { Util } from './_util.js';
 
-console.log(app);
-
-const sayHelloTest = (fName) => {
-  console.log(`Hello, ${fName}`);
+const App = {
+  sayHelloTest: function(fName) {
+    console.log(`Hello, ${fName}`);
+  },
+  init: function() {
+    this.sayHelloTest();
+  },
 };
 
-sayHelloTest("Trent");
+export default App;

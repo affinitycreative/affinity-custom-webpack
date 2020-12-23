@@ -1,20 +1,20 @@
-import { gsap, ScrollToPlugin, Draggable, MotionPathPlugin } from "gsap/all";
+import { gsap, ScrollToPlugin, Draggable, MotionPathPlugin } from 'gsap/all';
 
 // global.$ = window.jQuery = jQuery;
 
-const app = {
-  $body: $("body"),
+const Util = {
+  $body: $('body'),
   wWidth: $(window).innerWidth(),
   wHeight: $(window).innerHeight(),
   $window: $(window),
-  dataTrans: "", //name of transition
-  previousDataTrans: "", //name of previous transition
-  dataPage: "", //after using barba name of page
-  pageType: "", //either primary or secondary page - not always checked atm 3 march
+  dataTrans: '', //name of transition
+  previousDataTrans: '', //name of previous transition
+  dataPage: '', //after using barba name of page
+  pageType: '', //either primary or secondary page - not always checked atm 3 march
   primaryPage: false,
-  $curtain: $(".curtain-call"),
-  $chatContainer: $(".chat-widget-container"),
-  isMobile: function() {
+  $curtain: $('.curtain-call'),
+  $chatContainer: $('.chat-widget-container'),
+  isMobile: function () {
     if (
       /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(
         navigator.userAgent
@@ -28,7 +28,7 @@ const app = {
       return false;
     }
   },
-  getURLPath: function() {
+  getURLPath: function () {
     //   !!Important that permalink in settings does not have trailing '/'
     this.parsedUrl = new URL(window.location.href);
 
@@ -38,29 +38,29 @@ const app = {
 
     return this.parsedUrl.pathname; //.split("/")[1]
   },
-  getRootURLPath: function() {
+  getRootURLPath: function () {
     //   !!Important that permalink in settings does not have trailing '/'
     this.parsedUrl = new URL(window.location.href);
 
-    return this.parsedUrl.pathname.split("/")[1];
+    return this.parsedUrl.pathname.split('/')[1];
   },
-  getExtendedURLPath: function() {
+  getExtendedURLPath: function () {
     this.parsedUrl = new URL(window.location.href);
 
     return this.parsedUrl.pathname;
   },
-  searchPageUrl: function(findPage) {
+  searchPageUrl: function (findPage) {
     this.parsedUrl = new URL(window.location.href);
 
-    let urlArray = this.parsedUrl.pathname.split("/");
+    let urlArray = this.parsedUrl.pathname.split('/');
 
     let findPath = urlArray.includes(findPage, 1) ? true : false;
 
     return findPath;
   },
-  searchPathNameArray: function(match) {
+  searchPathNameArray: function (match) {
     //used to find say 'product' in /store/product/2019...
-    let pathArray = window.location.pathname.split("/");
+    let pathArray = window.location.pathname.split('/');
 
     let found;
 
@@ -71,29 +71,29 @@ const app = {
     return found;
   },
   keys: { 37: 1, 38: 1, 39: 1, 40: 1 }, // left: 37, up: 38, right: 39, down: 40, // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-  preventDefault: function(e) {
+  preventDefault: function (e) {
     e = e || window.event;
     if (e.preventDefault) {
       e.preventDefault();
       e.returnValue = false;
     }
   },
-  preventDefaultForScrollKeys: function(e) {
-    if (app.keys[e.keyCode]) {
+  preventDefaultForScrollKeys: function (e) {
+    if (Util.keys[e.keyCode]) {
       e.preventDefault();
       return false;
     }
   },
-  disableScroll: function(yPixel) {
+  disableScroll: function (yPixel) {
     if (window.addEventListener) {
       // older FF
-      window.addEventListener("DOMMouseScroll", this.preventDefault, {
+      window.addEventListener('DOMMouseScroll', this.preventDefault, {
         passive: false,
       });
-      document.addEventListener("wheel", this.preventDefault, {
+      document.addEventListener('wheel', this.preventDefault, {
         passive: false,
       }); // Disable scrolling in Chrome
-      document.addEventListener("touchmove", this.preventDefault, {
+      document.addEventListener('touchmove', this.preventDefault, {
         passive: false,
       }); // mobile
       window.onwheel = this.preventDefault; // modern standard
@@ -102,15 +102,15 @@ const app = {
       document.onkeydown = this.preventDefaultForScrollKeys;
     }
   },
-  enableScroll: function(yPixel) {
+  enableScroll: function (yPixel) {
     if (window.removeEventListener) {
-      window.removeEventListener("DOMMouseScroll", this.preventDefault, {
+      window.removeEventListener('DOMMouseScroll', this.preventDefault, {
         passive: false,
       });
-      document.removeEventListener("wheel", this.preventDefault, {
+      document.removeEventListener('wheel', this.preventDefault, {
         passive: false,
       }); // Enable scrolling in Chrome
-      document.removeEventListener("touchmove", this.preventDefault, {
+      document.removeEventListener('touchmove', this.preventDefault, {
         passive: false,
       }); // mobile
       window.onmousewheel = document.onmousewheel = null;
@@ -119,79 +119,77 @@ const app = {
       document.onkeydown = null;
     }
   },
-  setCookie: function(name, value, days) {
-    let expires = "";
+  setCookie: function (name, value, days) {
+    let expires = '';
     if (days) {
       let date = new Date();
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      expires = "; expires=" + date.toUTCString();
+      expires = '; expires=' + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    document.cookie = name + '=' + (value || '') + expires + '; path=/';
   },
-  getCookie: function(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(";");
+  getCookie: function (name) {
+    let nameEQ = name + '=';
+    let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (" " == c.charAt(0)) c = c.substring(1, c.length);
+      while (' ' == c.charAt(0)) c = c.substring(1, c.length);
       if (0 == c.indexOf(nameEQ)) return c.substring(nameEQ.length, c.length);
     }
     return null;
   },
-  eraseCookie: function(name) {
-    document.cookie = name + "=; Max-Age=-99999999;";
+  eraseCookie: function (name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
   },
-  parseQuery: function(queryString) {
+  parseQuery: function (queryString) {
     let query = {};
-    let pairs = ("?" === queryString[0]
+    let pairs = ('?' === queryString[0]
       ? queryString.substr(1)
       : queryString
-    ).split("&");
+    ).split('&');
     for (let i = 0; i < pairs.length; i++) {
-      let pair = pairs[i].split("=");
-      query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "");
+      let pair = pairs[i].split('=');
+      query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
     }
     return query;
   },
-  curtainBottomToTop: function() {
-    let curtainBT = new TimelineMax({ paused: true });
-
-    curtainBT
-      .set($(".curtain-call"), {
-        top: "inherit",
-        bottom: 0,
-        force3D: true,
-        ease: "power2.inOut",
-      })
-      .to($(".curtain-call"), 0.7, { height: "100vh", force3D: true });
-
-    curtainBT.play();
-  },
-  curtainTopToBottom: function() {
-    let curtainTB = new TimelineMax({ paused: true });
-
-    curtainTB
-      .set($(".curtain-call"), {
-        bottom: "inherit",
-        top: 0,
-        force3D: true,
-        ease: "power2.inOut",
-      })
-      .to($(".curtain-call"), 0.7, { height: "0vh", force3D: true });
-
-    curtainTB.play();
-  },
   pad(num, size) {
-    return ("000000000" + num).substr(-size);
+    return ('000000000' + num).substr(-size);
   },
-  setCSSvariable: function() {
+  setCSSvariable: function () {
     document.documentElement.style.setProperty(
-      "--vh",
+      '--vh',
       `${window.innerHeight / 100}px`
     );
   },
-  init: function() {},
+  unFocus: function () {
+    if (!document || !window) {
+      return;
+    }
+
+    var styleText =
+      '::-moz-focus-inner{border:0 !important;}:focus{outline: none !important;';
+    var unfocus_style = document.createElement('STYLE');
+
+    window.unfocus = function () {
+      document.getElementsByTagName('HEAD')[0].appendChild(unfocus_style);
+
+      document.addEventListener('mousedown', function () {
+        unfocus_style.innerHTML = styleText + '}';
+      });
+      document.addEventListener('keydown', function () {
+        unfocus_style.innerHTML = '';
+      });
+    };
+
+    unfocus.style = function (style) {
+      styleText += style;
+    };
+
+    unfocus();
+  },
+  init: function () {},
 }; //app
 
-export { app };
-//window.app = app;
+export { Util };
+//window.Util = Util;
