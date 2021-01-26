@@ -1,0 +1,7 @@
+.*
+/node_modules/**
+gsap-bonus.tgz
+package-lock.json
+package.json
+src/**
+webpack.config.js
