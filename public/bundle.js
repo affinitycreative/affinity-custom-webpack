@@ -380,7 +380,7 @@ var App = {
     console.log("Hello, ".concat(fName));
   },
   init: function init() {
-    this.sayHelloTest();
+    this.sayHelloTest('dude');
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (App);

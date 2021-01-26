@@ -1,0 +1,99 @@
+.blur {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  // filter: url(/wp-content/uploads/2017/10/blur.svg#blur);
+  //  filter: progid:DXImageTransform.Microsoft.blur(MakeShadow='false', PixelRadius='20');
+  //  pointer-events: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  //position: absolute;
+}
+
+.play {
+  animation: blur 0.5s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.reverse {
+  animation: blurReverse 0.5s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes blur {
+  0% {
+    -moz-filter: blur(0px);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
+  50% {
+    -moz-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+  }
+  100% {
+    -moz-filter: blur(10px);
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+  }
+}
+
+@-webkit-keyframes blurReverse {
+  0% {
+    -moz-filter: blur(10px);
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+  }
+  50% {
+    -moz-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+  }
+  100% {
+    -moz-filter: blur(0px);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
+}
+
+/*****************
+
+Age Gate
+
+*****************/
+.fixpage {
+  overflow: hidden;
+  position: fixed;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background-color: pink;
+  background-color: #000;
+  z-index: 10000;
+
+  #status {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    max-width: 230px;
+    background-size: contain;
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    background-image: url('/wp-content/uploads/2017/10/BD-Wines-Logo_white.svg');
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+  }
+}

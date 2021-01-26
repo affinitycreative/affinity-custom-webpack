@@ -1,0 +1,72 @@
+.overview {
+    padding: 5rem 0 0 0;
+    background: white;
+
+    @include desktop-small {
+        padding: 12rem 0 0 0;
+    }
+
+    .headline {
+        @include tablet {
+            grid-column: 2 / span 4;
+        }
+
+        @include desktop-small {
+            grid-column: 3 / span 3;
+        }
+
+        h2 {
+            span {
+                display: block;
+
+                @include tablet {
+                    display: inline-block;
+                }                
+
+                &.l2 {
+                    padding-left: 4rem;
+
+                    @include desktop-medium {
+                        padding-left: 8rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .copy {
+        padding: 2rem 0;
+        max-width: 22em;
+
+        @include tablet {
+            grid-column: 6 / span 4 ;
+            grid-row: 1 / span 2;
+            padding: 0;
+        }
+
+        @include desktop-small {
+            grid-column: 8 / span 5 ;
+        }
+
+        @include desktop-medium {
+            grid-column: 8 / span 3 ;
+        }        
+    }
+
+    .illustration {
+        grid-column: 1 / span 5;
+
+        @include tablet-small {
+            grid-column: 1 / span 5;
+            padding-top: 3rem;
+        }
+
+        @include desktop-small {
+            grid-column: 1 / span 6;
+        }
+
+        @include desktop-medium {
+            grid-column: 1 / span 5;
+        }
+    }
+}

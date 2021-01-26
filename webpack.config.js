@@ -110,7 +110,7 @@ module.exports = {
     // }),
     new BrowserSyncPlugin(
       {
-        proxy: 'http://pharmastrip.local/',
+        proxy: 'http://fetzer-corp-2021.local/',
         open: false,
         injectChanges: true,
         files: [
@@ -121,7 +121,7 @@ module.exports = {
                 const bs = require('browser-sync').get('bs-webpack-plugin');
 
                 let filename = file.substring(file.lastIndexOf('/') + 1);
-                console.log(filename);
+                console.log(`filename ${filename}`);
 
                 if (filename == 'style.js' || filename == 'style.css') {
                   bs.reload('*.css');

@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-HeavyItalic.woff2') format('woff2'),
+      url('fonts/MajestiBanner-HeavyItalic.woff') format('woff'),
+      url('fonts/MajestiBanner-HeavyItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-Light.woff2') format('woff2'),
+      url('fonts/MajestiBanner-Light.woff') format('woff'),
+      url('fonts/MajestiBanner-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  %MB {
+    font-family: 'Majesti Banner', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-LightItalic.woff2') format('woff2'),
+      url('fonts/MajestiBanner-LightItalic.woff') format('woff'),
+      url('fonts/MajestiBanner-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  %MB-Italic {
+    font-family: 'Majesti Banner', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner Book';
+    src: url('fonts/MajestiBanner-Book.woff2') format('woff2'),
+      url('fonts/MajestiBanner-Book.woff') format('woff'),
+      url('fonts/MajestiBanner-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  %MBB {
+    font-family: 'Majesti Banner Book', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner Book';
+    src: url('fonts/MajestiBanner-BookItalic.woff2') format('woff2'),
+      url('fonts/MajestiBanner-BookItalic.woff') format('woff'),
+      url('fonts/MajestiBanner-BookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-Heavy.woff2') format('woff2'),
+      url('fonts/MajestiBanner-Heavy.woff') format('woff'),
+      url('fonts/MajestiBanner-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-Bold.woff2') format('woff2'),
+      url('fonts/MajestiBanner-Bold.woff') format('woff'),
+      url('fonts/MajestiBanner-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-MediumItalic.woff2') format('woff2'),
+      url('fonts/MajestiBanner-MediumItalic.woff') format('woff'),
+      url('fonts/MajestiBanner-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-BoldItalic.woff2') format('woff2'),
+      url('fonts/MajestiBanner-BoldItalic.woff') format('woff'),
+      url('fonts/MajestiBanner-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Majesti Banner';
+    src: url('fonts/MajestiBanner-Medium.woff2') format('woff2'),
+      url('fonts/MajestiBanner-Medium.woff') format('woff'),
+      url('fonts/MajestiBanner-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  %MB-Medium {
+    font-family: 'Majesti Banner', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('fonts/AGaramondPro-BoldItalic.woff2') format('woff2'),
+      url('fonts/AGaramondPro-BoldItalic.woff') format('woff'),
+      url('fonts/AGaramondPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('fonts/AGaramondPro-Regular.woff2') format('woff2'),
+      url('fonts/AGaramondPro-Regular.woff') format('woff'),
+      url('fonts/AGaramondPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  %AG {
+    font-family: 'Adobe Garamond Pro', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('fonts/AGaramondPro-SemiboldItalic.woff2') format('woff2'),
+      url('fonts/AGaramondPro-SemiboldItalic.woff') format('woff'),
+      url('fonts/AGaramondPro-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('fonts/AGaramondPro-Italic.woff2') format('woff2'),
+      url('fonts/AGaramondPro-Italic.woff') format('woff'),
+      url('fonts/AGaramondPro-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  %AG-Italic {
+    font-family: 'Adobe Garamond Pro', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Trade Gothic Next LT Pro';
+    src: url('fonts/TradeGothicNextLTPro-It.woff2') format('woff2'),
+      url('fonts/TradeGothicNextLTPro-It.woff') format('woff'),
+      url('fonts/TradeGothicNextLTPro-It.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  %TG-Italic {
+    font-family: 'Trade Gothic Next LT Pro Cn', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Trade Gothic Next LT Pro BdCn';
+    src: url('fonts/TradeGothicNextLTPro-BdCn.woff2') format('woff2'),
+      url('fonts/TradeGothicNextLTPro-BdCn.woff') format('woff'),
+      url('fonts/TradeGothicNextLTPro-BdCn.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  %TG-Bold {
+    font-family: 'Trade Gothic Next LT Pro BdCn', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Trade Gothic Next LT Pro Cn';
+    src: url('fonts/TradeGothicNextLTPro-Cn.woff2') format('woff2'),
+      url('fonts/TradeGothicNextLTPro-Cn.woff') format('woff'),
+      url('fonts/TradeGothicNextLTPro-Cn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  %TG-Cn {
+    font-family: 'Trade Gothic Next LT Pro Cn', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Trade Gothic Next LT Pro';
+    src: url('fonts/TradeGothicNextLTPro-Rg.woff2') format('woff2'),
+      url('fonts/TradeGothicNextLTPro-Rg.woff') format('woff'),
+      url('fonts/TradeGothicNextLTPro-Rg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  %TG {
+    font-family: 'Trade Gothic Next LT Pro', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  %MMB {
+    font-family: 'Majesti Banner';
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  %MMI {
+    font-family: 'Majesti Banner';
+    font-weight: bold;
+    font-style: italic;
+  }
+  
