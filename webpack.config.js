@@ -110,7 +110,7 @@ module.exports = {
     // }),
     new BrowserSyncPlugin(
       {
-        proxy: 'http://fetzer-corp-2021.local/',
+        proxy: 'http://redwood-empire.local/',
         open: false,
         injectChanges: true,
         files: [
