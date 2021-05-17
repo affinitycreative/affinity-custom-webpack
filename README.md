@@ -1,7 +1,10 @@
-- New Install: Before running ‘npm install’ update webpack.config.js line 113 change proxy property to your local dev URL. Also in wp-config.php add ‘localDev: true;’ After that run ‘npm install’ from the root and that will run the ‘dev’ build process automatically. The proxy site will live on http://localhost:3000/ and will hot reload css and reload php and js changes. 
-- npm run build:dev for dev and npm run build:prod to compress and minify for production. Prod output to bundle.js
+- New Install: Before running ‘npm install’ update webpack.config.js line 113 change proxy property to your local dev URL. Also in wp-config.php add ‘localDev: true;’ After that run ‘npm install’ from the root and that will run the ‘dev’ build process automatically. The proxy site will live on http://localhost:3000/ and will reload php and js changes. 
 
+For DEV:
+- update v2: npm run build:dev & npm run watch:scss - must be run on two terminal instances
 
+for PROD:
+ npm run build:prod to compress and minify for production. Prod output to bundle.js
 
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
