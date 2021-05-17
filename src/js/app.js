@@ -5,7 +5,7 @@ const App = {
     console.log(`Hello, ${fName}`);
   },
   init: function() {
-    this.sayHelloTest('dude');
+    this.sayHelloTest('friend');
   },
 };
 

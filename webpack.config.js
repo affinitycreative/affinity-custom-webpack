@@ -110,7 +110,7 @@ module.exports = {
     // }),
     new BrowserSyncPlugin(
       {
-        proxy: 'http://redwood-empire.local/',
+        proxy: 'http://breadandbutter2021.local/',
         open: false,
         injectChanges: true,
         files: [
