@@ -91,6 +91,6 @@
     "extra-watch-webpack-plugin": "^1.0.3",
     "gsap": "file:gsap-bonus.tgz",
     "jquery": "^3.5.1",
-    "postcss": "^7.0.32"
+    "postcss": ">=8.2.10"
   }
 }
